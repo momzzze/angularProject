@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" class="navbar">
+  <div>Blog-project</div>
+  <div>
+    <span><a mat-button routerLink="home">Home</a></span>
+    <span><a mat-button routerLink="about">About</a></span>
+    <span *ngIf="!authService.isLoggedIn"><a mat-raised-button routerLink="sign-in">Login</a></span>
+    <span *ngIf="!authService.isLoggedIn"><a mat-raised-button routerLink="sign-up">Register</a></span>
+    <span *ngIf="authService.isLoggedIn"><a mat-raised-button (click)="authService.SignOut()">Logout</a></span>
+  </div>
+
+</mat-toolbar>

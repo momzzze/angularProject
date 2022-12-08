@@ -1,53 +1,85 @@
-<div class="displayTable">
+<!-- <div class="displayTable">
   <div class="displayTableCell">
     <div class="authBlock">
       <h3>Sign Up</h3>
       <div class="formGroup">
-        <input
-          type="email"
-          class="formControl"
-          placeholder="Email Address"
-          #userEmail
-          required
-        />
+
+        <label for="email">Email</label>
+        <input type="email" class="formControl" placeholder="email Address" #userEmail required />
       </div>
       <div class="formGroup">
-        <input
-          type="password"
-          class="formControl"
-          placeholder="Password"
-          #userPwd
-          required
-        />
+        <label for="password">Password</label>
+        <input type="password" class="formControl" placeholder="Password" #userPwd required />
       </div>
       <div class="formGroup">
-        <input
-          type="button"
-          class="btn btnPrimary"
-          value="Sign Up"
-          (click)="authService.SignUp(userEmail.value, userPwd.value)"
-        />
+        <input type="button" class="btn btnPrimary" value="Sign Up"
+          (click)="authService.SignUp(userEmail.value, userPwd.value)" />
       </div>
       <div class="formGroup">
         <span class="or"><span class="orInner">Or</span></span>
-      </div>
-      <!-- Continue with Google -->
-      <div class="formGroup">
-        <button
-          type="button"
-          class="btn googleBtn"
-          (click)="authService.GoogleAuth()"
-        >
+      </div> -->
+<!-- Continue with Google -->
+<!-- <div class="formGroup">
+        <button type="button" class="btn googleBtn" (click)="authService.GoogleAuth()">
           <i class="fab fa-google-plus-g"></i>
           Continue with Google
         </button>
       </div>
     </div>
     <div class="redirectToLogin">
-      <span
-        >Already have an account?
-        <span class="redirect" routerLink="/sign-in">Log In</span></span
-      >
+      <span>Already have an account?
+        <span class="redirect" routerLink="/sign-in">Log In</span></span>
     </div>
   </div>
 </div>
+
+<br> -->
+
+
+
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+  <mat-card fxFlex="25">
+    <mat-toolbar color="primary">
+      Register Page
+    </mat-toolbar>
+
+    <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="register-form"
+      (ngSubmit)="handleFormSubmit()">
+      <mat-form-field appearance="fill">
+        <input matInput placeholder="Email" id="email" required [appEmail]="['bg','com']" formControlName="email">
+        <mat-label *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">Email is required
+        </mat-label>
+      </mat-form-field>
+
+
+      <ng-container formGroupName="pass">
+        <mat-form-field appearance="fill">
+          <input matInput type="password" placeholder="Password" id="password" formControlName="password">
+          <mat-label
+            *ngIf="form.get('pass')?.get('password')?.touched && form.get('pass')?.get('password')?.errors?.['required']">
+            Password is
+            required
+          </mat-label>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <input matInput type="password" placeholder="Confirm Password" name="rePassword" id="rePassword"
+            formControlName="rePassword">
+          <mat-label
+            *ngIf="form.get('pass')?.errors?.['sameValueGroupValidator'] && form.get('pass')?.get('rePassword')?.touched"
+            class="error">Passwords Must match</mat-label>
+        </mat-form-field>
+      </ng-container>
+
+      <button mat-button [disabled]="form.invalid">Register</button>
+    </form>
+
+    <button mat-button (click)="authService.GoogleAuth()">
+      <i class="fab fa-google-plus-g"></i>
+      Continue with Google
+    </button>
+  </mat-card>
+</div>
+
+
+<!-- {{registerForm.value|json}} -->

@@ -22,6 +22,10 @@ import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { AboutComponent } from './components/about/about.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { sameValueGroupValidator } from './shared/validators/match-password-validator';
+import { AppEmailDirective } from './shared/validators/app-email.directive';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,7 @@ import { AboutComponent } from './components/about/about.component';
     HeaderComponent,
     HomeComponent,
     FooterComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,6 +50,9 @@ import { AboutComponent } from './components/about/about.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule,
+    SharedModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

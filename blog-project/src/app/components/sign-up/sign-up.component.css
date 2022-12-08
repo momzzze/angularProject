@@ -1,0 +1,10 @@
+.main-div mat-card{
+  padding: 0px;
+}
+
+.register-form{
+  padding: 20px;
+}
+.error{
+  color: red;
+}

@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "blod-angular-project": {
+      "hosting": {
+        "blog-project": [
+          "blod-angular-project"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "blod-angular-project"
+  }
+}

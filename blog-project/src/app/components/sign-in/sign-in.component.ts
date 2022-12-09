@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { sameValueGroupValidator } from 'src/app/shared/validators/match-password-validator';
 
@@ -15,15 +16,15 @@ export class SignInComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       // rePassword: ['', [Validators.required]]
     },
-    //  {
-    //   validators: [sameValueGroupValidator("password", "rePassword")]
-    // }
+      //  {
+      //   validators: [sameValueGroupValidator("password", "rePassword")]
+      // }
     )
   })
 
   constructor(
     public authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
   ) { }
 
   ngOnInit(): void {
@@ -39,6 +40,7 @@ export class SignInComponent implements OnInit {
       password: this.form.value.pass?.password!
     };
     console.log(value);
+
 
     this.authService.SignIn(value.userName, value.password);
   }

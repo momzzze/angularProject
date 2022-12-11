@@ -9,6 +9,7 @@ import { AuthGuard } from './shared/guard/auth.guard';
 import { AppModule } from './app.module';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
+import { AddPostComponent } from './components/blog-post/add-post/add-post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'create-post', component: AddPostComponent }
 ];
 
 @NgModule({

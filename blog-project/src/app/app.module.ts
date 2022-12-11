@@ -26,6 +26,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { sameValueGroupValidator } from './shared/validators/match-password-validator';
 import { AppEmailDirective } from './shared/validators/app-email.directive';
 import { SharedModule } from './shared/shared.module';
+import { AddPostComponent } from './components/blog-post/add-post/add-post.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { SharedModule } from './shared/shared.module';
     HomeComponent,
     FooterComponent,
     AboutComponent,
+    AddPostComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,15 @@
 <div fxLayoutAlign="center center" fxFlexFill class="main-div">
-  <mat-card fxFlex="25">
-    <mat-toolbar color="primary">
-      Login Page
-    </mat-toolbar>
-    <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="login-form" (ngSubmit)="addPostHandle()">
+  <mat-card fxFlex="50">
+    <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="add-form" (ngSubmit)="addPostHandle()">
       <mat-form-field appearance="fill">
-        <input matInput placeholder="Email" id="email" required formControlName="email">
-        <mat-label *ngIf="form.get('email')?.touched && form.get('email')?.errors?.['required']">Email is required
+        <input matInput placeholder="Title" id="title" required formControlName="title">
+        <mat-label *ngIf="form.get('title')?.touched && form.get('title')?.errors?.['required']">Title is required
         </mat-label>
       </mat-form-field>
-
-      <ng-container formGroupName="pass">
-        <mat-form-field appearance="fill">
-          <input matInput type="password" placeholder="Password" id="password" formControlName="password">
-          <mat-label
-            *ngIf="form.get('pass')?.get('password')?.touched && form.get('pass')?.get('password')?.errors?.['required']">
-            Password is
-            required
-          </mat-label>
-        </mat-form-field>
-      </ng-container>
-
-      <button mat-button [disabled]="form.invalid">Login</button>
+      <mat-form-field appearance="fill">
+        <textarea matInput placeholder="Content" id="content" required formControlName="content" rows="10"></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="accent" [disabled]="form.invalid">Save Post</button>
     </form>
-
-    <button mat-button (click)="authService.GoogleAuth()">
-      <i class="fab fa-google-plus-g"></i>
-      Continue with Google
-    </button>
   </mat-card>
 </div>

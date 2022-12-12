@@ -1,0 +1,14 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="50">
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="Title" id="title" required formControlName="title">
+            </mat-form-field>
+            <mat-form-field>
+                <textarea matInput placeholder="Content" id="content" required formControlName="content"
+                    rows="10"></textarea>
+            </mat-form-field>
+            <button mat-raised-button color="accent">Save Post</button>
+        </form>
+    </mat-card>
+</div>

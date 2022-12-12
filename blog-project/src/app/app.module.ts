@@ -27,6 +27,7 @@ import { sameValueGroupValidator } from './shared/validators/match-password-vali
 import { AppEmailDirective } from './shared/validators/app-email.directive';
 import { SharedModule } from './shared/shared.module';
 import { AddPostComponent } from './components/blog-post/add-post/add-post.component';
+import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { AddPostComponent } from './components/blog-post/add-post/add-post.compo
     FooterComponent,
     AboutComponent,
     AddPostComponent,
+    BlogPostComponent,
   ],
   imports: [
     BrowserModule,

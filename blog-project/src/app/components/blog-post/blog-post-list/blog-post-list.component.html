@@ -1,18 +1,17 @@
 <mat-accordion multi="true">
-    <mat-expansion-panel *ngFor="let post of postsData ">
-        <mat-expansion-panel-header>
+    <mat-expansion-panel *ngFor="let post of postsData " class="post">
+        <mat-expansion-panel-header class="post">
             {{post.title}}
         </mat-expansion-panel-header>
 
-
-        <mat-card class="example-card">
-            <mat-card-header>
+        <mat-card class="example-card post-item">
+            <mat-card-header class="content-title">
                 <div mat-card-avatar class="example-header-image"></div>
-                <mat-card-title> {{post.title}}</mat-card-title>
-                <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+                <mat-card-title > {{post.title}}</mat-card-title>
+                <mat-card-subtitle class="content-title">{{post.author}}</mat-card-subtitle>
             </mat-card-header>
             <img mat-card-image src="{{post.imageUrl}}" alt="Photo of a Shiba Inu">
-            <mat-card-content class="content">
+            <mat-card-content>
                 <p>{{post.content}}</p>
             </mat-card-content>
             <mat-card-actions>

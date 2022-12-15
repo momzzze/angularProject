@@ -1,5 +1,5 @@
 .example-card {
-  max-width: 400px;
+  max-width: 500px;
 }
 
 .example-header-image {
@@ -10,4 +10,22 @@
 .content {
   inline-size: 400px;
   overflow-wrap: break-word;
+}
+
+.post {
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.post-item {
+  margin: auto;
+  padding: 10px;
+}
+
+.content-title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }

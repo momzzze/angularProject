@@ -1,0 +1,14 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+  padding-right: 1rem;
+}

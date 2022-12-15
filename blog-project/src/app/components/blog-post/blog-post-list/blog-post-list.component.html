@@ -1,0 +1,28 @@
+<mat-accordion multi="true">
+    <mat-expansion-panel *ngFor="let post of postsData ">
+        <mat-expansion-panel-header>
+            {{post.title}}
+        </mat-expansion-panel-header>
+
+
+        <mat-card class="example-card">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title> {{post.title}}</mat-card-title>
+                <mat-card-subtitle>{{post.author}}</mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="{{post.imageUrl}}" alt="Photo of a Shiba Inu">
+            <mat-card-content class="content">
+                <p>{{post.content}}</p>
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button color="primary" (click)="onClickEdit(post.id,post)">Edit</button>
+                <button mat-button color="warn" (click)="onClickDelete(post.id)">Delete</button>
+            </mat-card-actions>
+        </mat-card>
+    </mat-expansion-panel>
+</mat-accordion>
+
+<!-- <div class="list-group" *ngFor="let year of postsData | async">
+    {{ year | json }}
+  </div> -->

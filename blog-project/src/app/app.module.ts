@@ -6,9 +6,9 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AngularFireModule } from '@angular/fire/compat';
-import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { environment } from '../environments/environment';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -28,6 +28,9 @@ import { AppEmailDirective } from './shared/validators/app-email.directive';
 import { SharedModule } from './shared/shared.module';
 import { AddPostComponent } from './components/blog-post/add-post/add-post.component';
 import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.component';
+import { EditPostComponent } from './components/blog-post/edit-post/edit-post.component';
+import { BlogPostListComponent } from './components/blog-post/blog-post-list/blog-post-list.component';
+import { BlogPostService } from './shared/services/blog-post.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,8 @@ import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.co
     AboutComponent,
     AddPostComponent,
     BlogPostComponent,
+    EditPostComponent,
+    BlogPostListComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,7 +63,12 @@ import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.co
     ReactiveFormsModule,
     SharedModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    BlogPostService,
+    AngularFirestore,
+    AngularFireAuth
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

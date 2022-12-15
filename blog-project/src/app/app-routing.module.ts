@@ -11,6 +11,8 @@ import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import { AddPostComponent } from './components/blog-post/add-post/add-post.component';
 import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.component';
+import { BlogPostListComponent } from './components/blog-post/blog-post-list/blog-post-list.component';
+import { EditPostComponent } from './components/blog-post/edit-post/edit-post.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -23,7 +25,9 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'create-post', component: AddPostComponent },
-  { path: 'blog-post', component: BlogPostComponent }
+  { path: 'blog-post', component: BlogPostComponent },
+  { path: 'blog-list', component: BlogPostListComponent },
+  { path: 'blog-post-edit/:id', component: EditPostComponent }
 ];
 
 @NgModule({

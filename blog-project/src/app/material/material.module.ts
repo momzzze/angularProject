@@ -6,7 +6,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import {MatExpansionModule} from '@angular/material/expansion'
 
 const material = [
   MatButtonModule,
@@ -16,6 +16,7 @@ const material = [
   MatInputModule,
   MatCardModule,
   FlexLayoutModule,
+  MatExpansionModule
 ];
 
 

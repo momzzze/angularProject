@@ -16,6 +16,7 @@ export class AddPostComponent implements OnInit {
   form = this.fb.group({
     title: ['', [Validators.required]],
     content: ['', [Validators.required]],
+    imageUrl:['']
   })
 
 
@@ -31,13 +32,8 @@ export class AddPostComponent implements OnInit {
   addPostHandle() {
     const title = this.form.value.title!;
     const content = this.form.value.content!;
+    const imageUrl=this.form.value.imageUrl!;
 
-    this.blogService.AddPost({ title, content }, this.authorId!, this.timeCreated)
-    // console.log(JSON.parse(localStorage['user']).uid)
-    // console.log(this.timeCreated);
-    // console.log(this.form.value);
-
-
-
+    this.blogService.AddPost({ title, content,imageUrl }, this.authorId!, this.timeCreated)
   }
 }

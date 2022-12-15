@@ -1,0 +1,23 @@
+<div fxLayoutAlign="center center" fxFlexFill class="main-div">
+    <mat-card fxFlex="50">
+        <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="add-form"
+            (ngSubmit)="editPostHandle()">
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="{{this.item.title}}" id="title" required formControlName="title">
+                <mat-label *ngIf="form.get('title')?.touched && form.get('title')?.errors?.['required']">Title is
+                    required
+                </mat-label>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <textarea matInput placeholder="{{this.item.content}}" id="content" required formControlName="content"
+                    rows="10"></textarea>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <input matInput placeholder="{{this.item.imageUrl}}" id="imageUrl" formControlName="imageUrl">
+            </mat-form-field>
+            <button mat-raised-button color="accent" [disabled]="form.invalid">Edit Post</button>
+        </form>
+    </mat-card>
+</div>
+<!-- [formGroup]="form" -->
+<!-- [disabled]="form.invalid" -->

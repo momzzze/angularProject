@@ -17,7 +17,7 @@ export class BlogPostService {
   postRef!: AngularFirestoreCollection<any>;
   items!: Observable<any[]>;
   item!: Observable<any>;
-  authorId?: string = JSON.parse(localStorage['user']).uid;
+  // authorId?: string = JSON.parse(localStorage['user']).uid;
 
   constructor(
     private afs: AngularFirestore,

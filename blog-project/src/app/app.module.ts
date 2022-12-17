@@ -31,6 +31,8 @@ import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.co
 import { EditPostComponent } from './components/blog-post/edit-post/edit-post.component';
 import { BlogPostListComponent } from './components/blog-post/blog-post-list/blog-post-list.component';
 import { BlogPostService } from './shared/services/blog-post.service';
+import { PostDetailsComponent } from './components/blog-post/post-details/post-details.component';
+
 
 @NgModule({
   declarations: [
@@ -48,6 +50,7 @@ import { BlogPostService } from './shared/services/blog-post.service';
     BlogPostComponent,
     EditPostComponent,
     BlogPostListComponent,
+    PostDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +64,7 @@ import { BlogPostService } from './shared/services/blog-post.service';
     AngularFireDatabaseModule,
     FormsModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [
     AuthService,

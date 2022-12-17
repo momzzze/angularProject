@@ -13,6 +13,7 @@ import { AddPostComponent } from './components/blog-post/add-post/add-post.compo
 import { BlogPostComponent } from './components/blog-post/blog-post/blog-post.component';
 import { BlogPostListComponent } from './components/blog-post/blog-post-list/blog-post-list.component';
 import { EditPostComponent } from './components/blog-post/edit-post/edit-post.component';
+import { PostDetailsComponent } from './components/blog-post/post-details/post-details.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -27,7 +28,8 @@ const routes: Routes = [
   { path: 'create-post', component: AddPostComponent },
   { path: 'blog-post', component: BlogPostComponent },
   { path: 'blog-list', component: BlogPostListComponent },
-  { path: 'blog-post-edit/:id', component: EditPostComponent }
+  { path: 'blog-post-edit/:id', component: EditPostComponent },
+  { path: 'post-detail/:id', component: PostDetailsComponent }
 ];
 
 @NgModule({

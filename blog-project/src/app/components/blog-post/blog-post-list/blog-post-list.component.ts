@@ -13,9 +13,9 @@ import { DataServiceService } from 'src/app/shared/services/data-service.service
   styleUrls: ['./blog-post-list.component.css']
 })
 export class BlogPostListComponent implements OnInit {
-  postsData!: any[];
+  postsData: any[]=[];
   post!: BlogPost;
-
+  userId?: string = JSON.parse(localStorage['user']).uid;
 
   constructor(
     private blogService: BlogPostService,
@@ -26,13 +26,18 @@ export class BlogPostListComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.currentPost.subscribe(post => this.post = post);
     this.retrievePosts();
+    console.log(this.userId);
+
   }
   retrievePosts() {
     this.blogService.GetPosts().subscribe(items => {
-      this.postsData = items;
-      localStorage.setItem('listOfPosts',JSON.stringify(this.postsData))
+      items.forEach(e => {
+       if(e.author===this.userId){
+        this.postsData.push(e);
+        localStorage.setItem('listOfPosts',JSON.stringify(this.postsData))
+       }
+      });
     })
-
   }
 
   onClickEdit(id: string, post: BlogPost) {

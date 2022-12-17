@@ -15,6 +15,7 @@ export class HeaderComponent implements OnInit {
     { linkId: 3, linkName: 'Register', linkUrl: 'sign-up' },
     { linkId: 4, linkName: 'Logout', linkUrl: 'logout' },
     { linkId: 5, linkName: 'Blog Posts', linkUrl: 'blog-list' },
+    { linkId: 6, linkName: 'Create Post', linkUrl: 'create-post' },
   ];
 
   constructor(
@@ -24,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
 
   ngOnInit(): void {
-    console.log(this.userData);
+    // console.log(this.userData);
   }
 
 }

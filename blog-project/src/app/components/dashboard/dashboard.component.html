@@ -1,23 +1,45 @@
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
-  <div class="inner-adjust">
-    <div class="pt-3 pb-2 mb-3 border-bottom">
-      <h1 class="h2">User Profile</h1>
-    </div>
-    <!-- Show user data when logged in -->
-    <div class="row" *ngIf="authService.userData as user">
+
+  <!-- Show user data when logged in -->
+  <div class="row">
+    <div fxFlex="50" class="inner-adjust">
+      <div class="pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">User Profile</h1>
+      </div>
       <div class="col-md-12">
         <div class="media">
-          <img class="align-self-start mr-5 img-thumbnail rounded-circle"
-            src="{{(user.photoURL) ? user.photoURL : '/assets/dummy-user.png'}}" alt="{{user.displayName}}">
+          <img mat-card-md-image src="{{(this.user.photoURL) ? this.user.photoURL : 'https://t4.ftcdn.net/jpg/00/65/77/27/360_F_65772719_A1UV5kLi5nCEWI0BNLLiFaBPEkUbv5Fv.jpg'}}" alt="{{user.displayName}}">
           <div class="media-body">
-            <h1>Hello: <strong>{{(user.displayName) ? user.displayName : 'User'}}</strong></h1>
-            <p>User ID: <strong>{{user.uid}}</strong></p>
-            <p>Email: <strong>{{user.email}}</strong></p>
-            <p>Email Verified: <strong>{{user.emailVerified}}</strong></p>
-            <p>Posts: <strong>{{user.posts}}</strong></p>
+            <h1>Hello: <strong>{{(this.user.displayName) ? user.displayName : 'User'}}</strong></h1>
+            <p>User ID: <strong>{{this.user.uid}}</strong></p>
+            <p>Email: <strong>{{this.user.email}}</strong></p>
+            <p>Phone number: <strong>{{this.user.phoneNumber}}</strong></p>
+
           </div>
         </div>
       </div>
     </div>
+    <mat-card fxFlex="50" fxFlexAlign.gt-lg="50">
+      <form [formGroup]="form" fxLayoutAlign="stretch" fxLayout="column" class="add-form"
+        (ngSubmit)="editUserHandler()">
+        <mat-form-field appearance="fill">
+          <mat-label>Email:</mat-label>
+          <input matInput placeholder="{{this.user.email}}" id="email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Display Name:</mat-label>
+          <input matInput placeholder="{{this.user.displayName}}" id="displayName" formControlName="displayName">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Phone Number:</mat-label>
+          <input matInput placeholder="{{this.user.phoneNumber}}" id="phoneNumber" formControlName="phoneNumber">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Photo Url:</mat-label>
+          <input matInput placeholder="{{this.user.photoURL}}" id="photoURL" formControlName="photoURL">
+        </mat-form-field>
+        <button mat-raised-button color="accent">Edit User</button>
+      </form>
+    </mat-card>
   </div>
 </main>

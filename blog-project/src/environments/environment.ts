@@ -5,14 +5,13 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyDHGQ-an7peImqk89SNpNJFMnYwo0P6vnc",
-    authDomain: "blod-angular-project.firebaseapp.com",
-    databaseURL: "https://blod-angular-project-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "blod-angular-project",
-    storageBucket: "blod-angular-project.appspot.com",
-    messagingSenderId: "226320252480",
-    appId: "1:226320252480:web:21f9aac86d2df1feede9a5",
-    measurementId: "G-NRNP1RX63Z"
+    apiKey: "AIzaSyCXwv7TW5BGxNUMZRo_sDkeqOeisMovqMA",
+    authDomain: "blog-project-fa8fd.firebaseapp.com",
+    projectId: "blog-project-fa8fd",
+    storageBucket: "blog-project-fa8fd.appspot.com",
+    messagingSenderId: "513924123483",
+    appId: "1:513924123483:web:00ee7f5b32c238c726287e",
+    measurementId: "G-FHH5D0HLXT"
   }
 };
 

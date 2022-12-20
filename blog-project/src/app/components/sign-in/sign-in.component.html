@@ -23,7 +23,7 @@
         </mat-form-field>
       </ng-container>
 
-      <button mat-button [disabled]="form.invalid">Login</button>
+      <button mat-raised-button [disabled]="form.invalid">Login</button>
     </form>
 
     <button mat-button (click)="authService.GoogleAuth()">

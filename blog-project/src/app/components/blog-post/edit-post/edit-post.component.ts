@@ -49,6 +49,6 @@ export class EditPostComponent implements OnInit {
     }
     localStorage.setItem('postElement', JSON.stringify(editedPost))
     this.blogService.UpdatePost(this.item.id, editedPost);
-    this.router.navigate(['blog-list']);
+    this.router.navigate(['home']);
   }
 }

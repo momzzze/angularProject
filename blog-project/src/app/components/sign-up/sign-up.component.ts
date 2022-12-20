@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, NgForm, Validators } from '@angular/forms';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { Auth } from 'firebase/auth';
 import { appEmailDomains } from 'src/app/shared/constants';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { appEmailValidator, sameValueGroupValidator } from 'src/app/shared/validators';
@@ -23,7 +25,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+
   ) { }
 
   ngOnInit(): void {

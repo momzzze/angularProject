@@ -6,6 +6,7 @@
     <span><a mat-button routerLink="about">About</a></span>
     <span><a mat-button *ngIf="authService.isLoggedIn" routerLink="create-post">Create Posts</a></span>
     <span><a mat-button *ngIf="authService.isLoggedIn" routerLink="blog-list">Blog Posts</a></span>
+    <span><a mat-button *ngIf="authService.isLoggedIn" routerLink="dashboard">Dashboard</a></span>
     <span *ngIf="!authService.isLoggedIn"><a mat-raised-button routerLink="sign-in">Login</a></span>
     <span *ngIf="!authService.isLoggedIn"><a mat-raised-button routerLink="sign-up">Register</a></span>
     <span *ngIf="authService.isLoggedIn"><a mat-raised-button

@@ -24,6 +24,8 @@ export class BlogPostListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.postsData=[];
+    localStorage.setItem('listOfPosts',JSON.stringify(this.postsData))
     this.dataService.currentPost.subscribe(post => this.post = post);
     this.retrievePosts();
     console.log(this.userId);

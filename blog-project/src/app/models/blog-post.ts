@@ -5,5 +5,6 @@ export interface BlogPost {
   author?: string,
   published?: Date,
   modified?: Date,
-  imageUrl?:string
+  imageUrl?:string,
+  authorName?:string,
 }

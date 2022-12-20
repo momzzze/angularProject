@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
     { linkId: 4, linkName: 'Logout', linkUrl: 'logout' },
     { linkId: 5, linkName: 'Blog Posts', linkUrl: 'blog-list' },
     { linkId: 6, linkName: 'Create Post', linkUrl: 'create-post' },
+    { linkId: 7, linkName: 'Dashboard', linkUrl: 'dashboard' },
   ];
 
   constructor(

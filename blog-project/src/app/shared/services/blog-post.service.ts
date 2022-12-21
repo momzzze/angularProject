@@ -28,14 +28,17 @@ export class BlogPostService {
 
   }
 
-  AddPost(post: { title: string, content: string, imageUrl: string }, author: string, createdAt: Date) {
+  AddPost(post: { title: string, content: string, imageUrl: string }, author: string, createdAt: Date, authorName: string) {
+    console.log(authorName);
+
     const postForm: BlogPost = {
       title: post.title,
       content: post.content,
       author: author,
       published: createdAt,
       modified: createdAt,
-      imageUrl: post.imageUrl
+      imageUrl: post.imageUrl,
+      authorName:authorName
     }
     this.postRef.add(postForm).then(() => {
       this.router.navigate(['home']);

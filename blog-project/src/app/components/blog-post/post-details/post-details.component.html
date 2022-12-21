@@ -1,2 +1,9 @@
-<p>post-details works! {{item.id}}</p>
+<div class="post-container">
+  <img src="{{item.imageUrl}}" alt="aaa">
+  <h2>{{item.title}}</h2>
+  <p>{{item.author}}</p>
+  <p [innerHTML]="item.content">{{item.content}}</p>
+</div>
+
+
 <button mat-raised-button color="accent" (click)="onClickBackHandler()">Back</button>

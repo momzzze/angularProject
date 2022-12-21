@@ -13,7 +13,7 @@ import { DataServiceService } from 'src/app/shared/services/data-service.service
   styleUrls: ['./blog-post-list.component.css']
 })
 export class BlogPostListComponent implements OnInit {
-  postsData: any[]=[];
+  postsData: any[] = [];
   post!: BlogPost;
   userId?: string = JSON.parse(localStorage['user']).uid;
 
@@ -24,8 +24,8 @@ export class BlogPostListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.postsData=[];
-    localStorage.setItem('listOfPosts',JSON.stringify(this.postsData))
+    this.postsData = [];
+    localStorage.setItem('listOfPosts', JSON.stringify(this.postsData))
     this.dataService.currentPost.subscribe(post => this.post = post);
     this.retrievePosts();
     console.log(this.userId);
@@ -34,10 +34,10 @@ export class BlogPostListComponent implements OnInit {
   retrievePosts() {
     this.blogService.GetPosts().subscribe(items => {
       items.forEach(e => {
-       if(e.author===this.userId){
-        this.postsData.push(e);
-        localStorage.setItem('listOfPosts',JSON.stringify(this.postsData))
-       }
+        if (e.author === this.userId) {
+          this.postsData.push(e);
+          localStorage.setItem('listOfPosts', JSON.stringify(this.postsData))
+        }
       });
     })
   }
@@ -49,5 +49,6 @@ export class BlogPostListComponent implements OnInit {
 
   onClickDelete(id: string) {
     this.blogService.DeletePost(id);
+    this.router.navigate(['home']);
   }
 }

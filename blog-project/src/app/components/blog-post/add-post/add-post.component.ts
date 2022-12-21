@@ -11,7 +11,7 @@ import { BlogPostService } from 'src/app/shared/services/blog-post.service';
 export class AddPostComponent implements OnInit {
   authorId?: string = JSON.parse(localStorage['user']).uid;
   timeCreated: Date = new Date(Date.now());
-  authorName?: string=JSON.parse(localStorage['user']).displayName;
+  authorName: string=JSON.parse(localStorage['userData']).displayName
 
   form = this.fb.group({
     title: ['', [Validators.required]],
@@ -27,13 +27,15 @@ export class AddPostComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    // this.authorName=localStorage['user'].displayName;
   }
 
   addPostHandle() {
     const title = this.form.value.title!;
     const content = this.form.value.content!;
     const imageUrl=this.form.value.imageUrl!;
-    const authorName=
-    this.blogService.AddPost({ title, content,imageUrl }, this.authorId!, this.timeCreated)
+
+
+     this.blogService.AddPost({ title, content,imageUrl }, this.authorId!, this.timeCreated,this.authorName!)
   }
 }

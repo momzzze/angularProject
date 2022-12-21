@@ -46,7 +46,7 @@ export class AuthService {
     return this.afAuth
     .signInWithEmailAndPassword(email, password)
     .then((result) => {
-      this.SetUserData(result.user);
+      // this.SetUserData(result.user);
       this.afAuth.authState.subscribe((user) => {
         if (user) {
           this.router.navigate(['home']);
@@ -110,7 +110,6 @@ export class AuthService {
     return this.afAuth
       .signInWithPopup(provider)
       .then((result) => {
-        console.log(result);
         this.router.navigate(['dashboard']);
         this.SetUserData(result.user);
       })
@@ -121,20 +120,11 @@ export class AuthService {
 
 
   SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(`users/${user.uid}`);
-    // const users=this.GetUsers();
-    // users.forEach(e => {
-    //   e.forEach(element => {
-    //     if(element.uid===result.user?.uid){
-    //       this.SetUserData(element);
-    //       this.afAuth.authState.subscribe((user) => {
-    //         if (user) {
-    //           this.router.navigate(['home']);
-    //         }
-    //       });
-    //     }
-    //   });
-    // });
+    const userRef= this.afs.doc(`users/${user.uid}`);
+
+    console.log(userRef);
+
+
     const userData: User = {
       uid: user.uid,
       email: user.email,
@@ -143,9 +133,7 @@ export class AuthService {
       emailVerified: user.emailVerified,
     };
 
-    return userRef.set(userData, {
-      merge: true
-    });
+    return userRef.set(userData);
   }
   // Sign out
   SignOut() {
@@ -166,11 +154,12 @@ export class AuthService {
       phoneNumber: user.phoneNumber,
       emailVerified: this.userData.emailVerified
     }
-    this.SetUserData(userInfo);
+    this.SetUserData(userData);
     this.afs.doc<User>('users/' + id)
       .update(user);
 
   }
+
   GetUsers() {
     return this.afs.collection<User>('users')
       .snapshotChanges()

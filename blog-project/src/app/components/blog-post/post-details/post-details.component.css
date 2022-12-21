@@ -1,0 +1,22 @@
+.post-container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 150px;
+  padding: 20px;
+  background-color: #3F51B5;
+}
+
+.post-container img{
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.post-container h2{
+    margin-bottom: 20px;
+    color: white;
+}
+.post-container p{
+  width: 100%;
+  margin-bottom: 20px;
+  color: white;
+}

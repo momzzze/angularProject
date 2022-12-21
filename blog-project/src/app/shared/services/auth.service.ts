@@ -46,6 +46,7 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
+        localStorage.setItem('userData', JSON.stringify(result.user));
         // this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
@@ -137,9 +138,11 @@ export class AuthService {
   }
   // Sign out
   SignOut() {
-    return this.afAuth.signOut().then(() => {
+    this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
+      localStorage.removeItem('userData');
       this.router.navigate(['sign-in']);
+      location.reload();
     });
   }
 
@@ -159,9 +162,9 @@ export class AuthService {
       .update(user);
 
   }
-  getUserById(uid:string){
+  getUserById(uid: string) {
     return this.afs.collection('users', ref => ref.where('id', '==', uid)).valueChanges();
-    }
+  }
   GetUsers() {
     return this.afs.collection<User>('users')
       .snapshotChanges()

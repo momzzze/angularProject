@@ -11,12 +11,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class DashboardComponent implements OnInit {
   form!: FormGroup;
-  user: any=JSON.parse(localStorage.getItem('user')!);
+  user: any=JSON.parse(localStorage.getItem('userData')!);
   constructor(public authService: AuthService, public router: Router) { }
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('userData')!);
     this.retrievePosts();
+
     this.form = new FormGroup({
       email: new FormControl(`${this.user.email}`),
       displayName: new FormControl(`${this.user.displayName}`),

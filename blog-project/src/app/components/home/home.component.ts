@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { MarkdownParserService } from 'src/app/markdown-parser.service';
+import { MarkdownParserService } from 'src/app/shared/services/markdown-parser.service';
 import { BlogPost } from 'src/app/models/blog-post';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { BlogPostService } from 'src/app/shared/services/blog-post.service';

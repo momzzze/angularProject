@@ -19,17 +19,29 @@ export class HeaderComponent implements OnInit {
     { linkId: 6, linkName: 'Create Post', linkUrl: 'create-post' },
     { linkId: 7, linkName: 'Dashboard', linkUrl: 'dashboard' },
   ];
-
+  user=JSON.parse(localStorage.getItem('user')!);
   constructor(
-    public authService: AuthService, public router:Router
+    public authService: AuthService, public router: Router
   ) {
   }
 
-
   ngOnInit(): void {
-    // console.log(this.userData);
+    localStorage.setItem('userData', JSON.stringify(this.user));
   }
-  onClickDashhandler(){
-    this.router.navigate(['dashboard'],JSON.parse(localStorage.getItem('user')!));
+
+  onClickDashhandler() {
+    this.authService.GetUsers().subscribe(items => {
+      items.forEach(e => {
+        if (e.uid === this.user.uid) {
+          this.user = e;
+          localStorage.setItem('userData', JSON.stringify(this.user));
+        }
+      });
+    });
+    this.router.navigate(['dashboard'], { state: { data: this.user } });
+  }
+  logoutClickHandler() {
+    localStorage.removeItem('userData');
+    this.authService.SignOut()
   }
 }

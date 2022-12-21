@@ -10,7 +10,7 @@
     <span *ngIf="!authService.isLoggedIn"><a mat-raised-button routerLink="sign-in">Login</a></span>
     <span *ngIf="!authService.isLoggedIn"><a mat-raised-button routerLink="sign-up">Register</a></span>
     <span *ngIf="authService.isLoggedIn"><a mat-raised-button
-        (click)="authService.SignOut()">Logout</a></span>
+        (click)="logoutClickHandler()">Logout</a></span>
   </div>
 
 </mat-toolbar>

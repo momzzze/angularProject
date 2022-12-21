@@ -40,7 +40,6 @@ export class SignInComponent implements OnInit {
       password: this.form.value.pass?.password!
     };
 
-
     this.authService.SignIn(value.userName, value.password);
   }
 }

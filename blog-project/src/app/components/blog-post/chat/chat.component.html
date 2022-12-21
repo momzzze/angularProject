@@ -3,12 +3,12 @@
     <div *ngFor="let message of messages">
       <div class="message">
         {{message.userName}}:
-        <p class="" style="padding-left: 10px;"><strong>{{message.message}}</strong> </p>
+        <p style="padding-left: 10px;"><strong>{{message.message}}</strong> </p>
         <small>posted on {{message.postedTime}}</small>
       </div>
     </div>
   </div>
-  <div class="input-container">
+  <div class="input-container" *ngIf="authService.isLoggedIn">
     <input type="text" [(ngModel)]="message">
     <button (click)="sendMessage()">Send</button>
   </div>

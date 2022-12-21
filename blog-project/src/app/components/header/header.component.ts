@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    localStorage.setItem('userData', JSON.stringify(this.user));
+    // localStorage.setItem('userData', JSON.stringify(this.user));
   }
 
   onClickDashhandler() {

@@ -13,8 +13,8 @@ export class ChatComponent implements OnInit {
   messages: any[] = [];
   currentPost!: any;
   currentUser!: any;
-  constructor(private authService: AuthService, private blogService: BlogPostService) { }
-  userId = JSON.parse(localStorage.getItem('user')!).uid;
+  constructor(public authService: AuthService, private blogService: BlogPostService) { }
+  // userId = JSON.parse(localStorage.getItem('user')!).uid;
 
   ngOnInit(): void {
     this.currentUser = JSON.parse(localStorage.getItem('userData')!);
@@ -29,7 +29,8 @@ export class ChatComponent implements OnInit {
       postedTime: new Date().toString()
     }
     this.messages.push(messageObj);
-
+    console.log(this.currentUser);
+    const messagesItem=this.messages;
     const editedPost = { ...this.currentPost, messages: this.messages };
     localStorage.setItem('postElement',JSON.stringify(editedPost))
     this.blogService.UpdatePost(this.currentPost.id, editedPost);

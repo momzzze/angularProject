@@ -1,9 +1,10 @@
 <div class="post-container">
   <img src="{{item.imageUrl}}" alt="aaa">
+  <p>By <strong>{{item.authorName}}</strong> </p>
   <h2>{{item.title}}</h2>
   <p>{{item.author}}</p>
   <p [innerHTML]="item.content">{{item.content}}</p>
 </div>
-
+<app-chat></app-chat>
 
 <button mat-raised-button color="accent" (click)="onClickBackHandler()">Back</button>

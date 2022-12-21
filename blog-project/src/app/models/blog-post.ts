@@ -7,4 +7,5 @@ export interface BlogPost {
   modified?: Date,
   imageUrl?:string,
   authorName?:string,
+  messages?:{}
 }

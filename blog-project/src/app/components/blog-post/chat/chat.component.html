@@ -1,0 +1,15 @@
+<div class="chat-container" fxFlex="40">
+  <div class="messages">
+    <div *ngFor="let message of messages">
+      <div class="message">
+        {{message.userName}}:
+        <p style="padding-left: 10px;"><strong>{{message.message}}</strong> </p>
+        <small>posted on {{message.postedTime}}</small>
+      </div>
+    </div>
+  </div>
+  <div class="input-container">
+    <input type="text" [(ngModel)]="message">
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

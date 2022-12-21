@@ -32,6 +32,7 @@ import { EditPostComponent } from './components/blog-post/edit-post/edit-post.co
 import { BlogPostListComponent } from './components/blog-post/blog-post-list/blog-post-list.component';
 import { BlogPostService } from './shared/services/blog-post.service';
 import { PostDetailsComponent } from './components/blog-post/post-details/post-details.component';
+import { ChatComponent } from './components/blog-post/chat/chat.component';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { PostDetailsComponent } from './components/blog-post/post-details/post-d
     EditPostComponent,
     BlogPostListComponent,
     PostDetailsComponent,
+    ChatComponent,
   ],
   imports: [
     BrowserModule,

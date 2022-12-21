@@ -38,7 +38,8 @@ export class BlogPostService {
       published: createdAt,
       modified: createdAt,
       imageUrl: post.imageUrl,
-      authorName:authorName
+      authorName:authorName,
+      messages:[],
     }
     this.postRef.add(postForm).then(() => {
       this.router.navigate(['home']);
@@ -64,7 +65,9 @@ export class BlogPostService {
               author: data.author,
               published: data.published,
               modified: data.modified,
-              id: action.payload.doc.id
+              authorName:data.authorName,
+              id: action.payload.doc.id,
+              messages:data.messages
             }
           })
         })

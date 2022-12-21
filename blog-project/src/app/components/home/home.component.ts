@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
   }
 
   onClick() {
-    console.log(this.authService.userData);
+    console.log(this.blogPosts);
   }
 
   onClickDetailsHandler(id: string, post: BlogPost) {

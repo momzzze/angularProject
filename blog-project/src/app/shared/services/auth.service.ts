@@ -44,18 +44,18 @@ export class AuthService {
   // Sign in with email/password
   SignIn(email: string, password: string) {
     return this.afAuth
-    .signInWithEmailAndPassword(email, password)
-    .then((result) => {
-      // this.SetUserData(result.user);
-      this.afAuth.authState.subscribe((user) => {
-        if (user) {
-          this.router.navigate(['home']);
-        }
+      .signInWithEmailAndPassword(email, password)
+      .then((result) => {
+        // this.SetUserData(result.user);
+        this.afAuth.authState.subscribe((user) => {
+          if (user) {
+            this.router.navigate(['home']);
+          }
+        });
+      })
+      .catch((error) => {
+        window.alert(error.message);
       });
-    })
-    .catch((error) => {
-      window.alert(error.message);
-    });
   }
 
 
@@ -120,7 +120,7 @@ export class AuthService {
 
 
   SetUserData(user: any) {
-    const userRef= this.afs.doc(`users/${user.uid}`);
+    const userRef = this.afs.doc(`users/${user.uid}`);
 
     console.log(userRef);
 
@@ -159,7 +159,9 @@ export class AuthService {
       .update(user);
 
   }
-
+  getUserById(uid:string){
+    return this.afs.collection('users', ref => ref.where('id', '==', uid)).valueChanges();
+    }
   GetUsers() {
     return this.afs.collection<User>('users')
       .snapshotChanges()

@@ -1,13 +1,27 @@
 ## deployed at https://blod-angular-project.web.app/blog-list
 
+## used DB and auth scheme are from google/firestore used with angular/fire  also deployed with google/firebase
+
+
 ## Public Part:
-
-
+user should see home component, about component, login and register component
+in home component will be listed all Blog posts and anonymous user can see all messages from the comentating system
 
 
 ## Private Part:
+### users can: 
+  create posts create post
+  update their own posts Blog posts component
+  delete their own posts Blog posts component 
+  comentate on all posts home component
+  update user data in dashboard
+
+## there are auth validations for login and register also for create post
 
 
+
+## posible updates for which I had no time:
+    pagination in home & blog posts components
 
 
 

@@ -18,11 +18,13 @@ in home component will be listed all Blog posts and anonymous user can see all m
 
 ## there are auth validations for login and register also for create post
 
+## also I have used angular/material and some fxflex to visualize simple html/css
+  all components have separate css files where is needed
 
 
-## posible updates for which I had no time:
+ ## posible updates for which I had no time:
     pagination in home & blog posts components
-
+    search engine for posts
 
 
 # BlogProject

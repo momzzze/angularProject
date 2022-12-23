@@ -123,7 +123,7 @@ export class AuthService {
   SetUserData(user: any) {
     const userRef = this.afs.doc(`users/${user.uid}`);
 
-    console.log(userRef);
+
 
 
     const userData: User = {

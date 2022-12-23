@@ -17,19 +17,20 @@ import { PostDetailsComponent } from './components/blog-post/post-details/post-d
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
   { path: 'about', component: AboutComponent },
   // { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'dashboard', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'create-post', component: AddPostComponent },
   { path: 'blog-post', component: BlogPostComponent },
-  { path: 'blog-list', component: BlogPostListComponent },
+  { path: 'blog-list', component: BlogPostListComponent,canActivate: [AuthGuard] },
   { path: 'blog-post-edit/:id', component: EditPostComponent },
-  { path: 'post-detail/:id', component: PostDetailsComponent }
+  { path: 'post-detail/:id', component: PostDetailsComponent },
+  { path: '**', redirectTo: 'home' },
 ];
 
 @NgModule({

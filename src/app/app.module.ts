@@ -33,6 +33,7 @@ import { BlogPostListComponent } from './components/blog-post/blog-post-list/blo
 import { BlogPostService } from './shared/services/blog-post.service';
 import { PostDetailsComponent } from './components/blog-post/post-details/post-details.component';
 import { ChatComponent } from './components/blog-post/chat/chat.component';
+import { AuthGuard } from './shared/guard/auth.guard';
 
 
 @NgModule({
@@ -72,7 +73,8 @@ import { ChatComponent } from './components/blog-post/chat/chat.component';
     AuthService,
     BlogPostService,
     AngularFirestore,
-    AngularFireAuth
+    AngularFireAuth,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = JSON.parse(localStorage.getItem('userData')!);
-    this.retrievePosts();
+    this.retrieveUsers();
 
     this.form = new FormGroup({
       email: new FormControl(`${this.user.email}`),
@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  retrievePosts() {
+  retrieveUsers() {
     this.authService.GetUsers().subscribe(items => {
       items.forEach(e => {
         if (e.uid === this.user.uid) {

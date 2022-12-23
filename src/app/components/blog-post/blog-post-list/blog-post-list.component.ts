@@ -28,7 +28,6 @@ export class BlogPostListComponent implements OnInit {
     localStorage.setItem('listOfPosts', JSON.stringify(this.postsData))
     this.dataService.currentPost.subscribe(post => this.post = post);
     this.retrievePosts();
-    console.log(this.userId);
 
   }
   retrievePosts() {

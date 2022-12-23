@@ -12,7 +12,7 @@ import { BlogPostService } from 'src/app/shared/services/blog-post.service';
 })
 export class HomeComponent implements OnInit {
   blogPosts!: any[];
-
+  user?: any = JSON.parse(localStorage.getItem('user')!);
   constructor(
     public authService: AuthService,
     public blogService: BlogPostService,
@@ -21,12 +21,11 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.user = JSON.parse(localStorage.getItem('userData')!);
     this.retrievePosts();
+    this.retrieveUsers();
   }
 
-  onClick() {
-    console.log(this.blogPosts);
-  }
 
   onClickDetailsHandler(id: string, post: BlogPost) {
     localStorage.setItem('postElement', JSON.stringify(post));
@@ -41,6 +40,17 @@ export class HomeComponent implements OnInit {
       });
       localStorage.setItem('listOfPosts', JSON.stringify(this.blogPosts))
     })
+
+  }
+  retrieveUsers() {
+    this.authService.GetUsers().subscribe(items => {
+      items.forEach(e => {
+        if (e.uid === this.user.uid!) {
+          this.user = e;
+          localStorage.setItem('userData', JSON.stringify(this.user));
+        }
+      });
+    });
 
   }
 }
